@@ -17,7 +17,7 @@ int printColorMap() {
 
 std::pair<const char*, const char*> getColorPair(int colorNumber){
     //implement the logic and modify the return value.
-    if(colorNumber){
+    if(colorNumber <= 25 && colorNumber >= 0){
         return std::make_pair("MajorColor", "MinorColor");
     }
     return std::make_pair("Invalid", "Index");
