@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <iomanip>
 
-std::make_pair getColorPair(const char* majorColor, const char* minorColor);
+std::pair<const char*, const char*> getColorPair(int colorNumber);
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
