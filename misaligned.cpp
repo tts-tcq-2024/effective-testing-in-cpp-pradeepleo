@@ -1,5 +1,6 @@
 #include <iostream>
 #include <assert.h>
+#include <iomanip>
 
 int printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
@@ -16,6 +17,9 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 25);
+    assert(getColorPair(0) == std::make_pair("White", "Blue"));
+    assert(getColorPair(12) == std::make_pair("Black", "Green"));
+    assert(getColorPair(24) == std::make_pair("Violet", "Slate"));
     std::cout << "All is well (maybe!)\n";
     return 0;
 }
