@@ -15,7 +15,10 @@ int printColorMap() {
     return i * j;
 }
 
-std::pair<const char*, const char*> getColorPair(int colorNumber);
+std::pair<const char*, const char*> getColorPair(int colorNumber){
+    //implement the logic and modify the return value.
+    return std::make_pair("MajorColor", "MinorColor");
+}
 // Test function to check expected color pairs
 void testColorPair() {
     // Expected color pairs based on the index (index 0 -> White, Blue; index 24 -> Violet, Slate)
