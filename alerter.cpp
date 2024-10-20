@@ -2,12 +2,16 @@
 #include <assert.h>
 
 int alertFailureCount = 0;
+bool mockNetworkFailure = False;
 
 int networkAlertStub(float celcius) {
     std::cout << "ALERT: Temperature is " << celcius << " celcius.\n";
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
+    if(mockNetworkFailure){ 
+        return 500;
+    }
     return 200;
 }
 
@@ -23,10 +27,25 @@ void alertInCelcius(float farenheit) {
     }
 }
 
-int main() {
+void testAlertFailureCount(){
+    mockNetworkFailure = False;
     alertInCelcius(400.5);
+    assert(alertFailureCount == 0);
+
+     mockNetworkFailure = True;
     alertInCelcius(303.6);
-    std::cout << alertFailureCount << " alerts failed.\n";
+     assert(alertFailureCount == 1);
+
+    mockNetworkFailure = True;
+    alertInCelcius(320.6);
+     assert(alertFailureCount == 2);
+
+}
+
+
+int main() {
+    testAlertFailureCount();
+
     std::cout << "All is well (maybe!)\n";
     return 0;
 }
